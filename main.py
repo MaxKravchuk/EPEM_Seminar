@@ -62,7 +62,7 @@ def build_model(prod, price, coeff, availability, capacity, fixed_cost):
 
     model.profit = Objective(
         expr=sum(
-            capacity * model.Production[day] * model.Prices[day] * (1 - model.Maintenance[day]) -
+             model.Production[day] * model.Prices[day] * (1 - model.Maintenance[day]) -
             fixed_cost * model.MaintenanceCoeff[day] * model.Maintenance[day]
             for day in model.T
         ),
